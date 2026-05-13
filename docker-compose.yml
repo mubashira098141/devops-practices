@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
 
   mysql-db:
@@ -8,7 +6,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: userDemo
+      MYSQL_DATABASE: userdemo
     ports:
       - "3307:3306"
 
@@ -17,11 +15,11 @@ services:
     container_name: springboot-app
     restart: always
     ports:
-      - "8083:8083"
+      - "8085:8083"
     depends_on:
       - mysql-db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/userDemo
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/userdemo
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       SERVER_PORT: 8083
